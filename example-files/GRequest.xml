@@ -1,0 +1,3 @@
+<cour:GetCourseDetailsRequest xmlns:cour="http://in28minutes.com/courses">
+  <cour:id>100</cour:id>
+</cour:GetCourseDetailsRequest>
