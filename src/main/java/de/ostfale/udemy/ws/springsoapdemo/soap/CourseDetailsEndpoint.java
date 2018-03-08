@@ -2,6 +2,7 @@ package de.ostfale.udemy.ws.springsoapdemo.soap;
 
 import com.in28minutes.courses.*;
 import de.ostfale.udemy.ws.springsoapdemo.soap.bean.Course;
+import de.ostfale.udemy.ws.springsoapdemo.soap.exception.CourseNotFoundException;
 import de.ostfale.udemy.ws.springsoapdemo.soap.service.CourseDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -35,6 +36,11 @@ public class CourseDetailsEndpoint {
 	@ResponsePayload
 	public GetCourseDetailsResponse processeRequest(@RequestPayload GetCourseDetailsRequest request) {
 		Course course = service.findById(request.getId());
+
+		if (course == null) {
+			throw new CourseNotFoundException("Invalid Course Id: " + request.getId());
+		}
+
 		return mapCourseDetails(course);
 	}
 
