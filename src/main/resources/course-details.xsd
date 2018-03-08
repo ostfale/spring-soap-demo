@@ -10,6 +10,16 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <xs:element name="GetAllCourseDetailsRequest">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="GetAllCourseDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="CourseDetails" type="tns:CourseDetails" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
     <xs:element name="GetCourseDetailsResponse">
         <xs:complexType>
             <xs:sequence>
