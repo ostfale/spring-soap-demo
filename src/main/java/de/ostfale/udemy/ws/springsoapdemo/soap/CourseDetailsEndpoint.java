@@ -41,7 +41,7 @@ public class CourseDetailsEndpoint {
 	@PayloadRoot(namespace = "http://in28minutes.com/courses", localPart = "DeleteCourseDetailsRequest")
 	@ResponsePayload
 	public DeleteCourseDetailsResponse deleteCourseDetailsRequest(@RequestPayload DeleteCourseDetailsRequest request) {
-		int result = service.deleteById(request.getId());
+		Status result = service.deleteById(request.getId());
 		DeleteCourseDetailsResponse response = new DeleteCourseDetailsResponse();
 		response.setStatus(result);
 		return response;
